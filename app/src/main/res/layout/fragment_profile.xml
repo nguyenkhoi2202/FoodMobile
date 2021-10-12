@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="354dp"
+            android:layout_height="160dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            tools:srcCompat="@drawable/avatar" />
+
+        <TextView
+            android:id="@+id/txtHelloUser"
+            android:layout_width="292dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="40dp"
+            android:textAlignment="center"
+            android:textColor="@color/Red" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="292dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="45dp"
+            android:text="Help" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="292dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="45dp"
+            android:text="Share" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="292dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="45dp"
+            android:text="Setting" />
+
+        <Button
+            android:id="@+id/btnSignout"
+            android:layout_width="292dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="45dp"
+            android:text="Signout" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

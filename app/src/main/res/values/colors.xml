@@ -12,4 +12,8 @@
     <color name="DarkBlue">#250285</color>
     <color name="Red">#EB0D0D</color>
     <color name="gray">#7E000000</color>
+
+    <color name="yourSelectedColor">#ff0000</color>
+    <color name="defaultColor">#000000</color>
+    <color name="orange">#FF5722</color>
 </resources>
