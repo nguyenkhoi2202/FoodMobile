@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "661452044053",
-    "firebase_url": "https://foodmobile-266f3-default-rtdb.firebaseio.com",
-    "project_id": "foodmobile-266f3",
-    "storage_bucket": "foodmobile-266f3.appspot.com"
+    "project_number": "469670538872",
+    "firebase_url": "https://finalproject-1e746-default-rtdb.firebaseio.com",
+    "project_id": "finalproject-1e746",
+    "storage_bucket": "finalproject-1e746.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:661452044053:android:8acee511ec51611a32db1c",
+        "mobilesdk_app_id": "1:469670538872:android:793265ba07c4eb93cf078d",
         "android_client_info": {
-          "package_name": "com.example.foodmobile"
+          "package_name": "com.example.it.firebasetest"
         }
       },
       "oauth_client": [
         {
-          "client_id": "661452044053-5u92tou80t96akf30iqcio9j07c83f8r.apps.googleusercontent.com",
+          "client_id": "469670538872-b42t9k5j8jqf8qu8eudjsdr4efh6hsnl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.foodmobile",
+            "package_name": "com.example.it.firebasetest",
             "certificate_hash": "e89e4cf40a7511536f39fb297a29da4468751228"
           }
         },
         {
-          "client_id": "661452044053-reo0v2fbl1bqdfqfk5ii173no6ehvk3a.apps.googleusercontent.com",
+          "client_id": "469670538872-sqpbvmq87dsqtonc1j9f0plk6m2ctbce.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCX0jE3xmG9dkDg9_xBnC3bE3Q_uAwlUnQ"
+          "current_key": "AIzaSyBiiSD3ybSS5dw5vHoKZo6nO1jyiOAGP_M"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "661452044053-reo0v2fbl1bqdfqfk5ii173no6ehvk3a.apps.googleusercontent.com",
+              "client_id": "469670538872-sqpbvmq87dsqtonc1j9f0plk6m2ctbce.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
