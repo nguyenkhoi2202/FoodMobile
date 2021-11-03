@@ -21,6 +21,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -45,6 +46,7 @@ public class Home extends AppCompatActivity
     DatabaseReference category;
 
     TextView txtFullName;
+    private Button btnHomeFood;
 
     RecyclerView recycler_menu;
     RecyclerView.LayoutManager layoutManager;
@@ -56,6 +58,7 @@ public class Home extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         toolbar.setTitle("Menu");
         setSupportActionBar(toolbar);
 

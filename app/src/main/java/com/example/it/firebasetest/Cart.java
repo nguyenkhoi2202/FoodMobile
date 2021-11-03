@@ -1,6 +1,9 @@
 package com.example.it.firebasetest;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +39,7 @@ public class Cart extends AppCompatActivity {
 
     TextView txtTotalPrice;
     Button btnPlace;
+    public ImageView deleteItemCart;
 
     List<Order> cart = new ArrayList<>();
 
@@ -57,36 +62,46 @@ public class Cart extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        deleteItemCart = findViewById(R.id.deleteItemCart);
+
         txtTotalPrice = findViewById(R.id.total);
         btnPlace = findViewById(R.id.btnPlaceOrder);
+
+
 
         btnPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                buttonEffect(view);
+                //buttonEffect(view);
 
-                Request request = new Request(
-                        Common.currentUser.getPhone(),
-                        Common.currentUser.getName(),
-                        Common.currentUser.getAddress(),
-                        txtTotalPrice.getText().toString(),
-                        cart
-                );
+//                Request request = new Request(
+//                        Common.currentUser.getPhone(),
+//                        Common.currentUser.getName(),
+//                        Common.currentUser.getAddress(),
 
 
-                if(tempTotal != 0) {
-                    //submit to firebase
-                    requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+//                );
 
-                    //Delete Cart
-                    new Database(getBaseContext()).cleneCart();
-                    Toast.makeText(Cart.this,"Successfully Ordered!", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-                else {
-                    Toast.makeText(Cart.this,"Cart is empty",Toast.LENGTH_SHORT).show();
-                }
+//
+//                if(tempTotal != 0) {
+//                    //submit to firebase
+//                    requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+//
+//                    //Delete Cart
+//                    new Database(getBaseContext()).cleneCart();
+//                    Toast.makeText(Cart.this,"Successfully Ordered!", Toast.LENGTH_SHORT).show();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("totalPrice", txtTotalPrice.getText().toString());
+
+
+                        Intent intent  = new Intent(Cart.this, CheckoutActivity.class);
+                        intent.putExtra("data", bundle);
+                        startActivity(intent);
+//                }
+//                else {
+//                    Toast.makeText(Cart.this,"Cart is empty",Toast.LENGTH_SHORT).show();
+//                }
 
 
 
@@ -94,7 +109,24 @@ public class Cart extends AppCompatActivity {
         });
 
         loadListFood();
+        content();
 
+    }
+
+    private void content() {
+        loadListFood();
+        refresh(1000);
+    }
+
+    private void refresh(int mili) {
+        final Handler handler = new Handler();
+        final  Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                content();
+            }
+        };
+        handler.postDelayed(runnable,mili);
     }
 
     private void buttonEffect(View view) {
@@ -130,10 +162,10 @@ public class Cart extends AppCompatActivity {
         for(Order order:cart)
             total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
         tempTotal = total;
-        Locale locale = new Locale("en","US");
-        NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
 
-        txtTotalPrice.setText(fmt.format(total));
+
+
+        txtTotalPrice.setText(" " +total + "VND");
 
     }
 }

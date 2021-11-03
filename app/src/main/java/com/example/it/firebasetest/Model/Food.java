@@ -2,17 +2,27 @@ package com.example.it.firebasetest.Model;
 
 public class Food {
     private String name,image,description,price,discount,menuId;
+    private String id;
 
     public Food() {
     }
 
-    public Food(String name, String image, String description, String price, String discount, String menuId) {
+    public Food(String id, String name, String image, String description, String price, String discount, String menuId) {
+        this.id = id;
         this.name = name;
         this.image = image;
         this.description = description;
         this.price = price;
         this.discount = discount;
         this.menuId = menuId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -29,21 +29,21 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseReference table_user;
 
-    private static boolean onTouch(View v, MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN: {
-                v.getBackground().setColorFilter(0xe0f47521, PorterDuff.Mode.SRC_ATOP);
-                v.invalidate();
-                break;
-            }
-            case MotionEvent.ACTION_UP: {
-                v.getBackground().clearColorFilter();
-                v.invalidate();
-                break;
-            }
-        }
-        return false;
-    }
+//    private static boolean onTouch(View v, MotionEvent event) {
+//        switch (event.getAction()) {
+//            case MotionEvent.ACTION_DOWN: {
+//                v.getBackground().setColorFilter(0xe0f47521, PorterDuff.Mode.SRC_ATOP);
+//                v.invalidate();
+//                break;
+//            }
+//            case MotionEvent.ACTION_UP: {
+//                v.getBackground().clearColorFilter();
+//                v.invalidate();
+//                break;
+//            }
+//        }
+//        return false;
+//    }
 
 
     @Override
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnSignUp.setOnClickListener(view -> {
 
-            buttonEffect(view);
+           // buttonEffect(view);
 
             Intent signUp = new Intent(MainActivity.this, SignUp.class);
             startActivity(signUp);
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnSignIn.setOnClickListener(view -> {
 
-            buttonEffect(view);
+            //buttonEffect(view);
             final ProgressDialog mDialog = new ProgressDialog(MainActivity.this);
             mDialog.setMessage("Loading...");
             mDialog.show();
@@ -113,10 +113,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void buttonEffect(View view) {
-
-            view.setOnTouchListener(MainActivity::onTouch);
-        }
+//    private void buttonEffect(View view) {
+//
+//            view.setOnTouchListener(MainActivity::onTouch);
+//        }
 
 }
 

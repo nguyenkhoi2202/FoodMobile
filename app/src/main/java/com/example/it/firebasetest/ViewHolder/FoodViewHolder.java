@@ -19,10 +19,16 @@ import com.example.it.firebasetest.Interface.ItemClickListener;
 import com.example.it.firebasetest.Model.Food;
 import com.example.it.firebasetest.Model.Order;
 import com.example.it.firebasetest.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView txtFoodName;
+    public TextView txtFoodId;
     public TextView txtFoodDescription;
     public TextView txtFoodPrice;
     public ImageView imgFood;
@@ -31,7 +37,8 @@ public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     Food currentFood;
     String foodId = "";
     public Context context;
-
+    FirebaseDatabase database;
+    DatabaseReference foods;
     private ItemClickListener itemClickListener;
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -44,12 +51,15 @@ public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         txtFoodName = itemView.findViewById(R.id.food_name);
         txtFoodDescription = itemView.findViewById(R.id.food_description);
         txtFoodPrice = itemView.findViewById(R.id.food_price);
+        txtFoodId = itemView.findViewById(R.id.food_id);
         imgFood = itemView.findViewById(R.id.food_image);
 
         addToCartImg = (FloatingActionButton) itemView.findViewById(R.id.addToCartImg);
         fab = (FloatingActionButton) itemView.findViewById(R.id.fab);
 
         itemView.setOnClickListener(this);
+        database = FirebaseDatabase.getInstance();
+        foods = database.getReference("food");
 
 
         addToCartImg.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +67,7 @@ public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnCl
             public void onClick(View view) {
 
                     new Database(view.getContext()).addToCart(new Order(
-                            foodId,
+                            txtFoodId.getText().toString(),
                             txtFoodName.getText().toString().trim(),
                             "1",
                             txtFoodPrice.getText().toString().trim(),

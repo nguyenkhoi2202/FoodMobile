@@ -3,6 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/activity_cart.xml" value="0.28442028985507245" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/activity_checkout.xml" value="0.33" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/activity_detail_order.xml" value="0.28532608695652173" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/activity_food_details.xml" value="0.27943840579710144" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/activity_food_list.xml" value="0.27943840579710144" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/activity_hello.xml" value="0.27943840579710144" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/activity_home.xml" value="0.27943840579710144" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/activity_order_status.xml" value="0.25" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/activity_sign_up.xml" value="0.27943840579710144" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/app_bar_home.xml" value="0.27943840579710144" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/cart_layout.xml" value="0.28442028985507245" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/content_home.xml" value="0.27943840579710144" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/detail_item.xml" value="0.25" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/foot_item.xml" value="0.33" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/menu_item.xml" value="0.27943840579710144" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/nav_header_home.xml" value="0.27943840579710144" />
+        <entry key="..\:/FoodMobile/app/src/main/res/layout/order_layout.xml" value="0.27943840579710144" />
         <entry key="..\:/HCI/prm/FoodMobile/app/src/main/res/layout/activity_food_details.xml" value="0.1762917933130699" />
         <entry key="..\:/HCI/prm/FoodMobile/app/src/main/res/layout/activity_food_list.xml" value="0.2078125" />
         <entry key="..\:/HCI/prm/FoodMobile/app/src/main/res/layout/activity_home.xml" value="0.21197916666666666" />

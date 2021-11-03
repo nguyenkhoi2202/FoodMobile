@@ -63,6 +63,15 @@
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="9"
+        android:layout_width="30dp"
+        android:layout_height="76dp">
+
+
+
+    </LinearLayout>
 
 
     </LinearLayout>

@@ -22,41 +22,49 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content">
 
+
+
             <TextView
-                android:id="@+id/cart_item_name"
+                android:id="@+id/detail_name"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
                 android:textStyle="bold"
-                android:text="Food 01"
+                android:text="name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/cart_item_price"
+                android:id="@+id/detail_price"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
                 android:textStyle="bold"
-                android:text="100000"
+                android:text="20000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/detail_quantity"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical|start"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:text="quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
-        <ImageView
-            android:layout_gravity="center_vertical|end"
-            android:layout_marginRight="16dp"
-            android:id="@+id/deleteItemCart"
-            android:layout_width="39dp"
-            android:layout_height="39dp"
-            app:srcCompat="@drawable/ic_delete"/>
-
-        <ImageView
-            android:layout_gravity="center_vertical|end"
-            android:layout_marginRight="16dp"
-            android:id="@+id/cart_item_count"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="9"
             android:layout_width="30dp"
-            android:layout_height="30dp" />
+            android:layout_height="76dp">
+
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

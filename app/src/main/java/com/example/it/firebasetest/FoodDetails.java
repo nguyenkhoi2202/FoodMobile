@@ -23,7 +23,7 @@ import com.squareup.picasso.Picasso;
 
 public class FoodDetails extends AppCompatActivity {
 
-    TextView food_name,food_price,food_description;
+    TextView food_name,food_price,food_description, food_id;
     ImageView food_image;
 //    CollapsingToolbarLayout collapsingToolbarLayout;
     FloatingActionButton btnCart;
@@ -55,7 +55,7 @@ public class FoodDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new Database(getBaseContext()).addToCart(new Order(
-                        foodId,
+                        currentFood.getId(),
                         currentFood.getName(),
                         numberButton.getNumber(),
                         currentFood.getPrice(),
@@ -67,11 +67,12 @@ public class FoodDetails extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
+        food_id = findViewById(R.id.food_id);
         food_description = findViewById(R.id.food_description);
         food_name = findViewById(R.id.food_name);
         food_price = findViewById(R.id.food_price);
         food_image = findViewById(R.id.img_food);
+
 
 //        collapsingToolbarLayout = findViewById(R.id.collapsing);
 //        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppbar);

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.it.firebasetest.Interface.ItemClickListener;
@@ -29,7 +30,7 @@ public class FoodList extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-
+    private Button btnHomeFood;
 
     FirebaseDatabase database;
     DatabaseReference foodList;
@@ -57,6 +58,8 @@ public class FoodList extends AppCompatActivity {
                 loadListFood(categoryId);
             }
         }
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

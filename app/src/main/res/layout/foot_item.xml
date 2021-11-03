@@ -46,6 +46,13 @@
                 android:text="Description"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+            <TextView
+                android:id="@+id/food_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -57,18 +64,18 @@
             <TextView
                 android:id="@+id/food_price"
                 android:layout_width="wrap_content"
-                android:layout_height="25dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:background="@drawable/capsule"
                 android:gravity="center"
-                android:text="$4"
+                android:text="4"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/addToCartImg"
                 android:layout_width="53dp"
-                android:layout_height="69dp"
+                android:layout_height="48dp"
                 android:background="@color/yellow"
                 android:backgroundTint="@color/yellow"
                 app:backgroundTintMode="add"
@@ -79,11 +86,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:pressedTranslationZ="12dp"
+                app:pressedTranslationZ="6dp"
                 app:srcCompat="@drawable/ic_shopping_cart_black_24dp"
                 app:useCompatPadding="true" />
 
-
+6
         </LinearLayout>
 
 

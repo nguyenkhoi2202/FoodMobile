@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.it.firebasetest.Common.Common;
@@ -32,6 +33,7 @@ public class OrderStatus extends AppCompatActivity {
     public RecyclerView.LayoutManager layoutManager;
     
     FirebaseRecyclerAdapter adapter;
+    private Button btnHome;
     
     FirebaseDatabase database;
     DatabaseReference requests;
@@ -45,9 +47,16 @@ public class OrderStatus extends AppCompatActivity {
         requests = database.getReference("request");
         
         recyclerView = findViewById(R.id.listOrders);
+        btnHome = findViewById(R.id.btnHome);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(OrderStatus.this, Home.class));
+            }
+        });
         
         loadOrders(Common.currentUser.getPhone());
     }
@@ -73,12 +82,23 @@ public class OrderStatus extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull OrderViewHolder holder, int position, @NonNull Request model) {
                 holder.txtOrderId.setText(adapter.getRef(position).getKey());
                 holder.txtOrderPhone.setText(model.getPhone());
-                holder.txtOrderSttus.setText(convertCodeToStates(model.getStatus()));
+                holder.txtOrderSttus.setText(Common.currentUser.getName());
                 holder.txtOrderAddress.setText(model.getAddress());
                 final Request clickItem = model;
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", adapter.getRef(position).getKey());
+                        bundle.putString("nameFood", model.getFoods().get(position).getProductName());
+                        bundle.putString("phone", model.getPhone());
+                        bundle.putString("priceFood", model.getFoods().get(position).getPrice());
+                        bundle.putString("quantityFood", model.getFoods().get(position).getQuantity());
+                        Intent intent = new Intent(OrderStatus.this, DetailOrder.class);
+                        intent.putExtra("data", bundle);
+                        startActivity(intent);
+                        // detail
+
                     }
                 });
             }
