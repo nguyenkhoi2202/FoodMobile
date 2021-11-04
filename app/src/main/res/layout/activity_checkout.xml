@@ -46,6 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Họ Và Tên"
+                    android:enabled="false"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
@@ -100,7 +101,7 @@
                     android:layout_height="40dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
-                    android:background="@color/overlayActionBar"
+                    android:background="#4CAF50"
                     android:text="Payment"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
@@ -113,23 +114,25 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-
-                        android:layout_marginLeft="30dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/imgMomo"
+                        android:layout_marginLeft="20dp"
                         android:src="@drawable/momo"></ImageView>
 
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="37dp"
-                        android:src="@drawable/vtpay"></ImageView>
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/imgVnpay"
+                        android:layout_marginLeft="30dp"
+                        android:src="@drawable/vnpay"></ImageView>
 
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="37dp"
-                        android:src="@drawable/paypal"></ImageView>
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/imgZalopay"
+                        android:layout_marginLeft="30dp"
+                        android:src="@drawable/zalopay"></ImageView>
 
 
                 </LinearLayout>

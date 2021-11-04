@@ -58,17 +58,17 @@ public class OrderStatus extends AppCompatActivity {
             }
         });
         
-        loadOrders(Common.currentUser.getPhone());
+        loadOrders(Common.currentUser.getName());
     }
 
-    private void loadOrders(String phone) {
+    private void loadOrders(String name) {
 
         Query query = FirebaseDatabase
                 .getInstance()
                 .getReference()
                 .child("request")
-                .orderByChild("phone")
-                .equalTo(phone);
+                .orderByChild("name")
+                .equalTo(name);
 
         FirebaseRecyclerOptions<Request> options =
                 new FirebaseRecyclerOptions.Builder<Request>()

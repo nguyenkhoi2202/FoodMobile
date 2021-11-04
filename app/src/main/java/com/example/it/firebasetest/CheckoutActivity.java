@@ -2,12 +2,14 @@ package com.example.it.firebasetest;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.it.firebasetest.Common.Common;
@@ -28,6 +30,10 @@ public class CheckoutActivity extends AppCompatActivity {
     private Button payment;
     private Button back;
 
+    private ImageView momo;
+    private ImageView vnpay;
+    private ImageView zalopay;
+
     private EditText name;
     private EditText phone;
     private EditText address;
@@ -43,6 +49,10 @@ public class CheckoutActivity extends AppCompatActivity {
         payment = (Button) findViewById(R.id.txtPayment);
         back = (Button) findViewById(R.id.txtBack);
 
+        momo = (ImageView) findViewById(R.id.imgMomo);
+        vnpay = (ImageView) findViewById(R.id.imgVnpay);
+        zalopay = (ImageView) findViewById(R.id.imgZalopay);
+
         name = (EditText) findViewById(R.id.txtHoVaTen);
         phone = (EditText) findViewById(R.id.txtSoDienThoai);
         address = (EditText) findViewById(R.id.txtDiaChi);
@@ -50,6 +60,36 @@ public class CheckoutActivity extends AppCompatActivity {
         name.setText(Common.currentUser.getName());
         phone.setText(Common.currentUser.getPhone());
         address.setText(Common.currentUser.getAddress());
+
+        momo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://test-payment.momo.vn/pay/store/MOMOIQA420180417-storeid01?a=10000&b=B001221&s=601a7280711dd72bfae8c365801f5e257311a1ebd8779cf3bc4ac57c4002a978"));
+                startActivity(intent);
+            }
+        });
+
+        vnpay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+
+                intent.setData(Uri.parse("https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=1806000&vnp_Command=pay&vnp_CreateDate=20210801153333&vnp_CurrCode=VND&vnp_IpAddr=127.0.0.1&vnp_Locale=vn&vnp_OrderInfo=Thanh+toan+don+hang+%3A5&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Fdomainmerchant.vn%2FReturnUrl&vnp_TmnCode=DEMOV210&vnp_TxnRef=5&vnp_Version=2.1.0&vnp_SecureHash=3e0d61a0c0534b2e36680b3f7277743e8784cc4e1d68fa7d276e79c23be7d6318d338b477910a27992f5057bb1582bd44bd82ae8009ffaf6d141219218625c42"));
+                startActivity(intent);
+            }
+        });
+
+        zalopay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+
+                intent.setData(Uri.parse("https://sbgateway.zalopay.vn/openinapp?order=eyJ6cHRyYW5zdG9rZW4iOiIxOTA3MTkwMDAwMDExMjluOVo2VjlPIiwiYXBwaWQiOjU1M30"));
+                startActivity(intent);
+            }
+        });
+
 
         Intent intentResult = getIntent();
         Bundle bundle = intentResult.getBundleExtra("data");

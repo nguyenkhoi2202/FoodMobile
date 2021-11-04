@@ -65,38 +65,38 @@ public class DetailOrder extends AppCompatActivity {
         String quantity = bundle.getString("quantityFood", "");
 
 
-        Query query = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child("request")
-                .orderByChild("phone")
-                .equalTo(phone);
-
-        FirebaseRecyclerOptions<Request> options =
-                new FirebaseRecyclerOptions.Builder<Request>()
-                        .setQuery(query, Request.class)
-                        .build();
-
-        adapter = new FirebaseRecyclerAdapter<Request, DetailFoodOrder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull DetailFoodOrder holder, int position, @NonNull Request model) {
-                holder.detail_name.setText(name);
-                holder.detail_price.setText(price);
-                holder.detail_quantity.setText(quantity);
-                final Request clickItem = model;
-
-            }
-
-
-            @Override
-            public DetailFoodOrder onCreateViewHolder(ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.order_layout, parent, false);
-
-                return new DetailFoodOrder(view);
-            }
-        };
-        recyclerView.setAdapter(adapter);
+//        Query query = FirebaseDatabase
+//                .getInstance()
+//                .getReference()
+//                .child("request")
+//                .orderByChild("phone")
+//                .equalTo(phone);
+//
+//        FirebaseRecyclerOptions<Request> options =
+//                new FirebaseRecyclerOptions.Builder<Request>()
+//                        .setQuery(query, Request.class)
+//                        .build();
+//
+//        adapter = new FirebaseRecyclerAdapter<Request, DetailFoodOrder>(options) {
+//            @Override
+//            protected void onBindViewHolder(@NonNull DetailFoodOrder holder, int position, @NonNull Request model) {
+//                holder.detail_name.setText(name);
+//                holder.detail_price.setText(price);
+//                holder.detail_quantity.setText(quantity);
+//                final Request clickItem = model;
+//
+//            }
+//
+//
+//            @Override
+//            public DetailFoodOrder onCreateViewHolder(ViewGroup parent, int viewType) {
+//                View view = LayoutInflater.from(parent.getContext())
+//                        .inflate(R.layout.order_layout, parent, false);
+//
+//                return new DetailFoodOrder(view);
+//            }
+//        };
+//        recyclerView.setAdapter(adapter);
 
     }
 
@@ -105,14 +105,14 @@ public class DetailOrder extends AppCompatActivity {
 //
 //    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        adapter.startListening();
-    }
-    @Override
-    public void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        adapter.startListening();
+//    }
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        adapter.stopListening();
+//    }
 }
