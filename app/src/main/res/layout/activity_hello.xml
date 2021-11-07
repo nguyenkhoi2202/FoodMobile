@@ -10,12 +10,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="398dp"
-        android:layout_height="127dp"
+        android:layout_width="413dp"
+        android:layout_height="155dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:adjustViewBounds="false"
-        android:src="@drawable/team"
+        android:src="@drawable/logofood"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

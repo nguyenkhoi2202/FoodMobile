@@ -8,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +26,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SignUp extends AppCompatActivity {
 
-    EditText txtphoneNumber,txtname,txtaddress,txtpassword,txtconfrimpassword;
-    Button btnSubmit;
+    private EditText txtphoneNumber,txtname,txtaddress,txtpassword,txtconfrimpassword;
+    private Button btnSubmit;
     private TextView login;
+    private ImageView imageView9;
 
     DatabaseReference table_user;
 
@@ -42,6 +46,10 @@ public class SignUp extends AppCompatActivity {
         txtpassword = findViewById(R.id.txtPassword2);
         txtconfrimpassword = findViewById(R.id.txtConfirmPassowrd2);
         btnSubmit = findViewById(R.id.btnSubmit);
+        imageView9 = (ImageView) findViewById(R.id.imageView9);
+
+        Animation animSlideUp = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoomout);
+        imageView9.startAnimation(animSlideUp);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

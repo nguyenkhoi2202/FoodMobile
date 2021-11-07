@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,26 +27,13 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText password,phoneNum;
-    Button btnSignIn, btnSignUp;
+    private EditText password,phoneNum;
+    private Button btnSignIn, btnSignUp;
 
     DatabaseReference table_user;
 
-//    private static boolean onTouch(View v, MotionEvent event) {
-//        switch (event.getAction()) {
-//            case MotionEvent.ACTION_DOWN: {
-//                v.getBackground().setColorFilter(0xe0f47521, PorterDuff.Mode.SRC_ATOP);
-//                v.invalidate();
-//                break;
-//            }
-//            case MotionEvent.ACTION_UP: {
-//                v.getBackground().clearColorFilter();
-//                v.invalidate();
-//                break;
-//            }
-//        }
-//        return false;
-//    }
+    private ImageView imageView2;
+
 
 
     @Override
@@ -55,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.txtPssword);
         btnSignIn = findViewById(R.id.btnLogin);
         btnSignUp = findViewById(R.id.btnSignUp);
+        imageView2 = (ImageView) findViewById(R.id.imageView2);
+
+        Animation animSlideUp = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoomout);
+        imageView2.startAnimation(animSlideUp);
+
+
 
         // Init Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -113,10 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    private void buttonEffect(View view) {
-//
-//            view.setOnTouchListener(MainActivity::onTouch);
-//        }
 
 }
 

@@ -6,21 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".SignUp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="412dp"
-        android:layout_height="176dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/login_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".27"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="408dp"
         android:layout_height="546dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -94,10 +81,10 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/edit_text_bg"
             android:hint="Confirm Password"
+            android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:inputType="textPassword"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -174,7 +161,17 @@
 
     </android.support.constraint.ConstraintLayout>
 
-
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="341dp"
+        android:layout_height="220dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logofood" />
 
 
 </android.support.constraint.ConstraintLayout>
