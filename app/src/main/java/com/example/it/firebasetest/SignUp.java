@@ -1,11 +1,15 @@
 package com.example.it.firebasetest;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -23,6 +27,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 
 public class SignUp extends AppCompatActivity {
 
@@ -86,15 +94,26 @@ public class SignUp extends AppCompatActivity {
                                 if(txtpassword.getText().toString().equals(txtconfrimpassword.getText().toString())){
                                     UserSignUp userSignUp = new UserSignUp(
                                             txtname.getText().toString(),
-                                            txtpassword.getText().toString(),
+                                            MD5(txtpassword.getText().toString()),
                                             txtaddress.getText().toString()
                                     );
                                     table_user.child(txtphoneNumber.getText().toString()).setValue(userSignUp);
                                     Toast.makeText(SignUp.this, "Submited Successfully", Toast.LENGTH_SHORT).show();
 
-                                    Intent signIn = new Intent(SignUp.this, MainActivity.class);
-                                    startActivity(signIn);
-                                    finish();
+                                    ActivityCompat.requestPermissions(SignUp.this,new String[]{Manifest.permission.SEND_SMS,Manifest.permission.READ_SMS}, PackageManager.PERMISSION_GRANTED);
+                                    String number = "114";
+                                    Random random = new Random();
+                                    int otpnumber = random.nextInt(999999);
+                                    String otp = String.valueOf(otpnumber);
+
+
+                                    SmsManager smsManager = SmsManager.getDefault();
+                                    smsManager.sendTextMessage(number,null,otp,null,null);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("otp", otp);
+                                    Intent intent = new Intent(SignUp.this,VerifyPhoneActivity.class);
+                                    intent.putExtra("data", bundle);
+                                    startActivity(intent);
 
                                 }
                                 else{
@@ -140,5 +159,28 @@ public class SignUp extends AppCompatActivity {
                 return false;
             }
         });
+    }
+    // mã hóa bằng MD5
+    public static String MD5(String password){
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("md5");
+            byte[] result = digest.digest(password.getBytes());
+            StringBuffer sb = new StringBuffer();
+            for(byte b : result){
+                int number = b & 0xff;
+                String hex = Integer.toHexString(number);
+                if(hex.length() == 1){
+                    sb.append("0" + hex);
+                }else{
+                    sb.append(hex);
+                }
+            }
+            return sb.toString();
+
+        }catch (NoSuchAlgorithmException e){
+            e.printStackTrace();
+            return "";
+        }
     }
 }

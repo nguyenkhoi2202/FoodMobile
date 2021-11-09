@@ -25,10 +25,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText password,phoneNum;
     private Button btnSignIn, btnSignUp;
+    private TextView welcome;
 
     DatabaseReference table_user;
 
@@ -45,10 +49,14 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.txtPssword);
         btnSignIn = findViewById(R.id.btnLogin);
         btnSignUp = findViewById(R.id.btnSignUp);
+        welcome = (TextView) findViewById(R.id.welcome);
         imageView2 = (ImageView) findViewById(R.id.imageView2);
 
         Animation animSlideUp = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoomout);
         imageView2.startAnimation(animSlideUp);
+
+        Animation welcomani = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
+        welcome.startAnimation(welcomani);
 
 
 
@@ -82,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         String phone = phoneNum.getText().toString();
                         User user = dataSnapshot.child(phone).getValue(User.class);
                         user.setPhone(phone);
-                        if(user.getPassword().equals(password.getText().toString())){
+                        if(user.getPassword().equals(MD5(password.getText().toString()))){
                             Intent homeIntent = new Intent(MainActivity.this, Home.class);
                             Common.currentUser = user;
 
@@ -107,6 +115,28 @@ public class MainActivity extends AppCompatActivity {
             });
         });
 
+    }
+    public static String MD5(String password){
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("md5");
+            byte[] result = digest.digest(password.getBytes());
+            StringBuffer sb = new StringBuffer();
+            for(byte b : result){
+                int number = b & 0xff;
+                String hex = Integer.toHexString(number);
+                if(hex.length() == 1){
+                    sb.append("0" + hex);
+                }else{
+                    sb.append(hex);
+                }
+            }
+            return sb.toString();
+
+        }catch (NoSuchAlgorithmException e){
+            e.printStackTrace();
+            return "";
+        }
     }
 
 
