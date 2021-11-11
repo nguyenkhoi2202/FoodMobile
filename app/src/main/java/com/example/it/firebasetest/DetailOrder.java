@@ -49,7 +49,7 @@ public class DetailOrder extends AppCompatActivity {
         setContentView(R.layout.activity_detail_order);
 
         database = FirebaseDatabase.getInstance();
-        requests = database.getReference("request");
+        requests = database.getReference("order");
 
         recyclerView = findViewById(R.id.listDetail);
         recyclerView.setHasFixedSize(true);

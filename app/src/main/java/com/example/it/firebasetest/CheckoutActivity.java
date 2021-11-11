@@ -113,7 +113,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
 
                 database = FirebaseDatabase.getInstance();
-                requests = database.getReference("request");
+                requests = database.getReference("order");
 
                 Request request = new Request(
                         phoneU,

@@ -68,7 +68,7 @@ public class SignUp extends AppCompatActivity {
 
         // Init Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        table_user = database.getReference("user");
+        table_user = database.getReference("users");
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
 
@@ -101,14 +101,14 @@ public class SignUp extends AppCompatActivity {
                                     Toast.makeText(SignUp.this, "Submited Successfully", Toast.LENGTH_SHORT).show();
 
                                     ActivityCompat.requestPermissions(SignUp.this,new String[]{Manifest.permission.SEND_SMS,Manifest.permission.READ_SMS}, PackageManager.PERMISSION_GRANTED);
-                                    String number = "114";
+                                    String number = "+10123456789";
                                     Random random = new Random();
                                     int otpnumber = random.nextInt(999999);
                                     String otp = String.valueOf(otpnumber);
 
 
                                     SmsManager smsManager = SmsManager.getDefault();
-                                    smsManager.sendTextMessage(number,null,otp,null,null);
+                                    smsManager.sendTextMessage(number,null,"Otp for Food Order: " + otp,null,null);
                                     Bundle bundle = new Bundle();
                                     bundle.putString("otp", otp);
                                     Intent intent = new Intent(SignUp.this,VerifyPhoneActivity.class);

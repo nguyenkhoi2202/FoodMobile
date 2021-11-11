@@ -44,7 +44,7 @@ public class OrderStatus extends AppCompatActivity {
         setContentView(R.layout.activity_order_status);
         
         database = FirebaseDatabase.getInstance();
-        requests = database.getReference("request");
+        requests = database.getReference("order");
         
         recyclerView = findViewById(R.id.listOrders);
         btnHome = findViewById(R.id.btnHome);
@@ -66,7 +66,7 @@ public class OrderStatus extends AppCompatActivity {
         Query query = FirebaseDatabase
                 .getInstance()
                 .getReference()
-                .child("request")
+                .child("order")
                 .orderByChild("name")
                 .equalTo(name);
 

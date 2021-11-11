@@ -54,7 +54,7 @@ public class Cart extends AppCompatActivity {
 
         //Firebase
         database = FirebaseDatabase.getInstance();
-        requests = database.getReference("request");
+        requests = database.getReference("order");
 
         //init
         recyclerView = findViewById(R.id.listCart);

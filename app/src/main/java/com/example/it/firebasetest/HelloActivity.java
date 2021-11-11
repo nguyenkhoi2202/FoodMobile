@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.it.firebasetest.Common.Common;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,7 +53,16 @@ public class HelloActivity extends AppCompatActivity {
             @Override
             public void run() {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                table_user = database.getReference("user");
+                table_user = database.getReference("users");
+                if(Common.currentUser == null){
+                    Intent intent = new Intent(HelloActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Intent intent1 = new Intent(HelloActivity.this, Home.class);
+                    startActivity(intent1);
+                    finish();
+                }
 
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(HelloActivity.this);
@@ -63,9 +73,7 @@ public class HelloActivity extends AppCompatActivity {
 //                            public void onClick(DialogInterface dialog, int which) {
 
                               //  dialog.dismiss();
-                                Intent intent = new Intent(HelloActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                finish();
+
 
 //                            }
 //                        });

@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Init Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        table_user = database.getReference("user");
+        table_user = database.getReference("users");
 
 
         btnSignUp.setOnClickListener(view -> {
